@@ -4,11 +4,14 @@ lemonbar - Featherweight lemon-scented bar
 
 
 ----
+
+
 in my openbox, maximized window covered by lemonbar, 
 without a configuable change, or try other workarounds can be take.
 just hard code to fit my needs.
 
 - change bar width to half screen size
+
 - and locate at nearly middle of screen
 
 
