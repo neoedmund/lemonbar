@@ -876,7 +876,8 @@ monitor_new (int x, int y, int width, int height, char *name)
         fprintf(stderr, "Failed to allocate new monitor\n");
         exit(EXIT_FAILURE);
     }
-
+    width/=2;
+    x+=width/2;
     ret->name = name;
     ret->x = x;
     ret->y = (topbar ? by : height - bh - by) + y;
