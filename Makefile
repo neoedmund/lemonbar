@@ -1,5 +1,5 @@
 # This snippet has been shmelessly stol^Hborrowed from thestinger's repose Makefile
-VERSION = 1.4
+VERSION = 1.3
 GIT_DESC=$(shell test -d .git && git describe --always 2>/dev/null)
 
 ifneq "$(GIT_DESC)" ""
@@ -7,13 +7,13 @@ ifneq "$(GIT_DESC)" ""
 endif
 
 CC	?= gcc
-CFLAGS += -Wall -std=c99 -Os -DVERSION="\"$(VERSION)\"" -D_GNU_SOURCE
-LDFLAGS += -lxcb -lxcb-xinerama -lxcb-randr
+CFLAGS += -Wall -std=c99 -Os -DVERSION="\"$(VERSION)\"" -I/usr/include/freetype2
+LDFLAGS += -lxcb  -lxcb-randr -lX11 -lX11-xcb -lXft -lfreetype -lz -lfontconfig
 CFDEBUG = -g3 -pedantic -Wall -Wunused-parameter -Wlong-long \
           -Wsign-conversion -Wconversion -Wimplicit-function-declaration
 
 EXEC = lemonbar
-SRCS = lemonbar.c utils.c
+SRCS = lemonbar.c
 OBJS = ${SRCS:.c=.o}
 
 PREFIX?=/usr
@@ -46,3 +46,4 @@ uninstall:
 	rm -f $(DESTDIR)$(PREFIX)/share/man/man1/lemonbar.1
 
 .PHONY: all debug clean install
+
