@@ -266,7 +266,7 @@ shift (monitor_t *mon, int x, int align, int ch_width)
                     mon->width / 2 - x / 2, 0,
                     mon->width / 2 - (x + ch_width) / 2, 0,
                     x, bh);
-            x = mon->width / 2 - (x + ch_width) / 2 + x;
+            x =  mon->width / 2 - (x + ch_width) / 2 + x;
             break;
         case ALIGN_R:
             xcb_copy_area(c, mon->pixmap, mon->pixmap, gc[GC_DRAW],
